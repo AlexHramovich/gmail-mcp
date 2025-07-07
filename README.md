@@ -1,6 +1,70 @@
-# Gmail MCP Server User Guide
+# Gmail MCP Server
 
-Complete guide for setting up and using the Gmail MCP Server with Claude Desktop.
+A Model Context Protocol (MCP) server that enables Claude Desktop to interact with Gmail through secure OAuth 2.0 authentication. Send emails, search messages, read emails, and manage multiple Gmail accounts directly from Claude Desktop.
+
+## Features
+
+- **Secure OAuth 2.0 Authentication** - No passwords stored, tokens auto-refresh
+- **Multiple Account Support** - Manage multiple Gmail accounts simultaneously
+- **Email Operations** - Send, search, and read emails with full Gmail API support
+- **Advanced Search** - Use Gmail's powerful search operators
+- **Real-time Integration** - Works seamlessly with Claude Desktop
+
+## Quick Start
+
+1. **Setup Google Cloud Console**:
+   - Create a project and enable Gmail API
+   - Create OAuth 2.0 credentials for desktop application
+   - Download credentials as `credentials.json`
+
+2. **Install and Build**:
+   ```bash
+   npm install
+   npm run build
+   ```
+
+3. **Configure Claude Desktop**:
+   - Place `credentials.json` in Claude Desktop's directory
+   - Update `claude_desktop_config.json` with server path
+   - Restart Claude Desktop
+
+4. **Start Using**:
+   ```
+   Send an email to john@example.com with subject "Hello" and body "Testing Gmail MCP"
+   ```
+
+## Architecture
+
+Built with TypeScript and follows MCP specifications:
+
+- **Entry Point**: `src/index.ts` - Main MCP server setup and tool definitions
+- **Gmail Client**: `src/gmail-client.ts` - Gmail API wrapper with OAuth authentication
+- **Authentication**: `src/auth.ts` - OAuth 2.0 credential management
+- **Types**: `src/types.ts` - TypeScript interfaces and type definitions
+
+## Development
+
+```bash
+# Development mode with hot reload
+npm run dev
+
+# Test with MCP Inspector
+npm run inspect
+
+# Build for production
+npm run build
+```
+
+## Security
+
+- Uses minimal required Gmail scopes (read and send only)
+- Tokens stored locally with automatic refresh
+- No email content stored permanently
+- All operations performed locally
+
+---
+
+# Complete User Guide
 
 ## Overview
 
