@@ -1,0 +1,27 @@
+{
+  "name": "gmail-mcp-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Gmail MCP Server for personal use",
+  "main": "build/index.js",
+  "bin": {
+    "gmail-mcp": "./build/index.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x build/index.js",
+    "dev": "tsx watch src/index.ts",
+    "inspect": "npx @modelcontextprotocol/inspector build/index.js",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.15.0",
+    "googleapis": "^128.0.0",
+    "@google-cloud/local-auth": "^2.1.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.8.0",
+    "tsx": "^4.0.0"
+  }
+}
